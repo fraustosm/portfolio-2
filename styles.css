@@ -54,12 +54,13 @@ img {
 }
 
 .links{
-    width: 280px;
+    width: 378px;
     text-align: center;
     padding: 21.5px 0px;
-    border-radius: 16px;
+    border-radius: 8px;
     font-family: "Montserrat", sans-serif;
     font-size: 24px;
     text-decoration: none;
     color: #65baaf;
+    border: 2px solid #65baaf;
 }
