@@ -32,7 +32,7 @@ img {
     font-size: 18px;
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 20px;
 }
 
 .presentacion-titulo {
@@ -63,4 +63,8 @@ img {
     text-decoration: none;
     color: #65baaf;
     border: 2px solid #65baaf;
+}
+
+@media screen {
+    
 }
