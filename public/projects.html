@@ -47,6 +47,57 @@
     </section>
   </main>
 
+  <!-- Chat -->
+<div id="chat-widget">
+  <div id="chat-header">Chat en vivo</div>
+  <div id="chat-body">
+    <div id="messages"></div>
+    <input id="chat-input" placeholder="Escribe un mensaje..." />
+  </div>
+</div>
+
+<!-- Socket.io -->
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  const socket = io();
+
+  const chatHeader = document.getElementById('chat-header');
+  const chatBody = document.getElementById('chat-body');
+  const chatInput = document.getElementById('chat-input');
+  const messages = document.getElementById('messages');
+
+  chatHeader.addEventListener('click', () => {
+    chatBody.style.display = chatBody.style.display === 'none' ? 'flex' : 'none';
+  });
+
+  // Cargar mensajes previos
+  socket.on('load messages', msgs => {
+    msgs.forEach(msg => {
+      const div = document.createElement('div');
+      div.textContent = msg.text;
+      messages.appendChild(div);
+    });
+    messages.scrollTop = messages.scrollHeight;
+  });
+
+  // Recibir mensajes en tiempo real
+  socket.on('chat message', msg => {
+    const div = document.createElement('div');
+    div.textContent = msg.text;
+    messages.appendChild(div);
+    messages.scrollTop = messages.scrollHeight;
+  });
+
+  // Enviar mensaje
+  chatInput.addEventListener('keypress', e => {
+    if(e.key === 'Enter' && chatInput.value.trim() !== ''){
+      socket.emit('chat message', chatInput.value);
+      chatInput.value = '';
+    }
+  });
+</script>
+
+
   <!-- Footer -->
   <footer>
     <p>© 2025 María Frausto. Todos los derechos reservados.</p>

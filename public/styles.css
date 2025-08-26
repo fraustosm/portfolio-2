@@ -297,3 +297,49 @@ footer {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   }
 }
+
+#chat-widget {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 300px;
+  max-height: 400px;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  font-size: 0.9rem;
+  z-index: 1000;
+}
+
+#chat-header {
+  background: #9b5de5;
+  color: #fff;
+  padding: 0.8rem;
+  font-weight: 600;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  cursor: pointer;
+}
+
+#chat-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+  overflow-y: auto;
+}
+
+#messages {
+  flex: 1;
+  overflow-y: auto;
+  margin-bottom: 0.5rem;
+}
+
+#chat-input {
+  padding: 0.5rem;
+  border: 1px solid #eee;
+  border-radius: 6px;
+}
